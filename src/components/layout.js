@@ -9,8 +9,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./header/header"
+import Footer from "./footer/footer"
 import "./layout.css"
+import 'semantic-ui-css/semantic.min.css'
+import CanvasBase from "../components/canvasBase/canvasBase"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -33,12 +36,9 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <CanvasBase>{children}</CanvasBase>
+        {/* <main>{children}</main> */}
+       <Footer />
       </div>
     </>
   )
